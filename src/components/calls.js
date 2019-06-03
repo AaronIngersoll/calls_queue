@@ -15,7 +15,7 @@ export default class Calls extends Component {
     this.getQueue();
     this.interval = setInterval(() => {
       this.getQueue();
-    }, 10000);
+    }, 5000);
   }
 
   componentWillUnmount() {

@@ -10,12 +10,15 @@ export default class Timer extends Component {
       data: [],
       showComponent: false
     };
+    this.componentShow = this.componentShow.bind(this);
   }
 
   componentDidMount() {
     this.getQueue();
+    this.componentShow();
     this.interval = setInterval(() => {
       this.getQueue();
+      this.componentShow();
     }, 5000);
   }
 
@@ -38,13 +41,14 @@ export default class Timer extends Component {
   }
 
   componentShow() {
-    let calls = this.state.data.map(data => data.calls_in_queue);
     this.setState({
-      showComponent: calls === 0 ? true : false
+      showComponent:
+        this.state.data.map(data => data.calls_in_queue) > 0 ? true : false
     });
   }
 
   render() {
+    // console.log(this.state);
     return (
       <div>
         {console.log(this.state.data)}
