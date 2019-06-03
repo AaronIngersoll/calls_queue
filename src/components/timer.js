@@ -48,10 +48,8 @@ export default class Timer extends Component {
   }
 
   render() {
-    // console.log(this.state);
     return (
       <div>
-        {console.log(this.state.data)}
         {this.state.showComponent
           ? this.state.data.map(data => (
               <h6 className="queue_waite_time">
